@@ -1,0 +1,16 @@
+server:
+    port: 8080
+
+spring:
+    datasource:
+      name: his
+      url: jdbc:mysql://localhost:3306/his?serverTimezone=Asia/Shanghai&useSSL=false
+      password: root
+      username: root
+      driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+    type-aliases-package: com.his.pojo
+    configuration:
+        mapUnderscoreToCamelCase: true
+
