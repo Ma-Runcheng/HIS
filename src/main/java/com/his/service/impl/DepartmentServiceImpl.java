@@ -1,0 +1,37 @@
+package com.his.service.impl;
+
+import com.his.mapper.DepartmentMapper;
+import com.his.pojo.Department;
+import com.his.service.DepartmentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.List;
+
+@Service
+public class DepartmentServiceImpl implements DepartmentService {
+    @Autowired
+    DepartmentMapper departmentMapper;
+
+    /**
+     * 查找所有部门
+     * @return 所有部门
+     */
+    @Override
+    public List<Department> getDepartmentList() {
+        return departmentMapper.selectAllDepartment();
+    }
+
+    /**
+     * 通过部门代号删除某部门，即将delmark置0
+     * @return true-成功，false-失败
+     */
+    @Override
+    public boolean deleteDepartment(String code) {
+        return departmentMapper.deleteDepartmentByCode(code);
+    }
+
+    @Override
+    public boolean updateDepartment(Department newDepartment) {
+        return departmentMapper.updateDepartmentById(newDepartment);
+    }
+}
