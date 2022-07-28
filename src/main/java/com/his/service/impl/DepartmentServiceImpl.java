@@ -30,8 +30,23 @@ public class DepartmentServiceImpl implements DepartmentService {
         return departmentMapper.deleteDepartmentByCode(code);
     }
 
+    /**
+     * 接收包含id的department对象，更新内容
+     * @param newDepartment
+     * @return true-成功，false-失败
+     */
     @Override
     public boolean updateDepartment(Department newDepartment) {
         return departmentMapper.updateDepartmentById(newDepartment);
+    }
+
+    /**
+     * 添加科室
+     * @param newDepartment
+     * @return true-成功，false-失败
+     */
+    @Override
+    public boolean addDepartment(Department newDepartment) {
+        return departmentMapper.insertDepartment(newDepartment);
     }
 }

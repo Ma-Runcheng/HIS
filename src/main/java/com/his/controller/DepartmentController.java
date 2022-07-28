@@ -33,9 +33,23 @@ public class DepartmentController {
         return departmentService.deleteDepartment(code);
     }
 
+    /**
+     * 接收包含id的department对象，更新内容
+     * @param department
+     * @return true-成功，false-失败
+     */
     @RequestMapping(value = "/updateDepartment",method = RequestMethod.POST)
     public boolean updateDepartmentById(@RequestBody Department department){
-        System.out.println(department);
         return departmentService.updateDepartment(department);
+    }
+
+    /**
+     * 添加科室
+     * @param department
+     * @return true-成功，false-失败
+     */
+    @RequestMapping(value = "addDepartment", method = RequestMethod.POST)
+    public boolean addDepartment(@RequestBody Department department){
+        return departmentService.addDepartment(department);
     }
 }
