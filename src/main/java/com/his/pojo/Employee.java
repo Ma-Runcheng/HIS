@@ -1,14 +1,17 @@
 package com.his.pojo;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Employee {
 
   private long id;
-  private long deptmentId;
-  private long registLevelId;
+  private String deptName;
+  private String registName;
   private long schedulingId;
   private String realname;
   private String password;
+  @JsonIgnore
   private long delmark;
 
 
@@ -21,21 +24,21 @@ public class Employee {
   }
 
 
-  public long getDeptmentId() {
-    return deptmentId;
+  public String getDeptName() {
+    return deptName;
   }
 
-  public void setDeptmentId(long deptmentId) {
-    this.deptmentId = deptmentId;
+  public void setDeptName(String deptName) {
+    this.deptName = deptName;
   }
 
 
-  public long getRegistLevelId() {
-    return registLevelId;
+  public String getRegistName() {
+    return registName;
   }
 
-  public void setRegistLevelId(long registLevelId) {
-    this.registLevelId = registLevelId;
+  public void setRegistName(String registName) {
+    this.registName = registName;
   }
 
 
@@ -78,8 +81,8 @@ public class Employee {
   public String toString() {
     return "Employee{" +
             "id=" + id +
-            ", deptmentId=" + deptmentId +
-            ", registLevelId=" + registLevelId +
+            ", deptName='" + deptName + '\'' +
+            ", registName='" + registName + '\'' +
             ", schedulingId=" + schedulingId +
             ", realname='" + realname + '\'' +
             ", password='" + password + '\'' +

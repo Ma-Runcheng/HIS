@@ -1,17 +1,12 @@
 package com.his.pojo;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Department {
-  @JsonProperty(value = "id")
+
   private long id;
-  @JsonProperty(value = "deptCode")
   private String deptCode;
-  @JsonProperty(value = "deptName")
   private String deptName;
-  @JsonProperty(value = "deptType")
   private String deptType;
   @JsonIgnore
   private long delmark;
