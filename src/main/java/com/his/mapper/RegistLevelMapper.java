@@ -19,6 +19,9 @@ public interface RegistLevelMapper {
     @Select("select * from regist_level where delmark = 1")
     List<RegistLevel> selectAllRegistLevel();
 
+    @Select("select * from regist_level where delmark = 1 and id = #{id}")
+    RegistLevel selectRegistLevelById(int id);
+
     /**
      * 通过id删除
      * @param id
