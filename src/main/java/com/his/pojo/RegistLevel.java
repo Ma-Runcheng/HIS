@@ -13,15 +13,6 @@ public class RegistLevel {
   @JsonIgnore
   private long delmark;
 
-  public RegistLevel(long id, String registCode, String registName,
-                     double registFee, long registQuota, long sequenceNo) {
-    this.id = id;
-    this.registCode = registCode;
-    this.registName = registName;
-    this.registFee = registFee;
-    this.registQuota = registQuota;
-    this.sequenceNo = sequenceNo;
-  }
 
   public long getId() {
     return id;

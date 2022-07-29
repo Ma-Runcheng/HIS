@@ -16,25 +16,48 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
+    /**
+     * 所有用户
+     * @param page 页数
+     * @param pageSize 每页项数
+     * @param name 模糊查询名字
+     * @return 10个用户
+     */
     @RequestMapping("/allEmployee")
     public List<Employee> getEmployeeList(@RequestParam(defaultValue = "1" ) Integer page,
-                                          @RequestParam(defaultValue = "10") Integer pageSize){
-        return employeeService.getEmployeeList(page,pageSize);
+                                          @RequestParam(defaultValue = "10") Integer pageSize,
+                                          @RequestParam(defaultValue = "") String name){
+        System.out.println(name);
+        return employeeService.getEmployeeList(page,pageSize,name);
     }
 
     /**
-     *
-     * @param id
-     * @return
+     * 删除
+     * @param id ID
+     * @return true-成功，false-失败
      */
     @RequestMapping("/deleteById")
     public boolean deleteEmployee(int id){
         return employeeService.deleteEmployeeById(id);
     }
 
-    @RequestMapping("/updateEmployee")
+    /**
+     * 更新
+     * @param employee 新员工
+     * @return true-成功，false-失败
+     */
+    @RequestMapping(value = "/updateEmployee", method = RequestMethod.POST)
     public boolean updateEmployee(@RequestBody Employee employee){
-        System.out.println(employee);
         return employeeService.updateEmployeeById(employee);
+    }
+
+    /**
+     * 添加新员工
+     * @param employee 新员工
+     * @return true-成功，false-失败
+     */
+    @RequestMapping(value = "/addEmployee" , method = RequestMethod.POST)
+    public boolean addEmployee(@RequestBody Employee employee){
+        return employeeService.insertEmployee(employee);
     }
 }

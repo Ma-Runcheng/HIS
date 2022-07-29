@@ -1,19 +1,37 @@
 package com.his.pojo;
 
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Employee {
 
   private long id;
-  private String deptName;
-  private String registName;
+  private long deptmentId;
+  private long registLevelId;
   private long schedulingId;
   private String realname;
   private String password;
   @JsonIgnore
   private long delmark;
+  private Department department;
+  private RegistLevel registLevel;
 
+  public RegistLevel getRegistLevel() {
+    return registLevel;
+  }
+
+  public void setRegistLevel(RegistLevel registLevel) {
+    this.registLevel = registLevel;
+  }
+
+  public Department getDepartment() {
+    return department;
+  }
+
+  public void setDepartment(Department department) {
+    this.department = department;
+  }
 
   public long getId() {
     return id;
@@ -24,21 +42,21 @@ public class Employee {
   }
 
 
-  public String getDeptName() {
-    return deptName;
+  public long getDeptmentId() {
+    return deptmentId;
   }
 
-  public void setDeptName(String deptName) {
-    this.deptName = deptName;
+  public void setDeptmentId(long deptmentId) {
+    this.deptmentId = deptmentId;
   }
 
 
-  public String getRegistName() {
-    return registName;
+  public long getRegistLevelId() {
+    return registLevelId;
   }
 
-  public void setRegistName(String registName) {
-    this.registName = registName;
+  public void setRegistLevelId(long registLevelId) {
+    this.registLevelId = registLevelId;
   }
 
 
@@ -81,12 +99,13 @@ public class Employee {
   public String toString() {
     return "Employee{" +
             "id=" + id +
-            ", deptName='" + deptName + '\'' +
-            ", registName='" + registName + '\'' +
+            ", deptmentId=" + deptmentId +
+            ", registLevelId=" + registLevelId +
             ", schedulingId=" + schedulingId +
             ", realname='" + realname + '\'' +
             ", password='" + password + '\'' +
             ", delmark=" + delmark +
+            ", department=" + department +
             '}';
   }
 }

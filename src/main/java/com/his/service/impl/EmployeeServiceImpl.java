@@ -15,20 +15,21 @@ public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeMapper employeeMapper;
 
     /**
-     *
-     * @param page
-     * @param pageSize
-     * @return
+     * 所有用户
+     * @param page 页数
+     * @param pageSize 每个个数
+     * @return 10个用户
      */
     @Override
-    public List<Employee> getEmployeeList(int page, int pageSize) {
+    public List<Employee> getEmployeeList(int page, int pageSize, String name) {
         int start = (page - 1) * pageSize;
-        return employeeMapper.selectAllEmployeeAndDept(start,pageSize);
+        return employeeMapper.selectAllEmployeeAndDept(start,pageSize,name);
     }
 
     /**
-     * @param id
-     * @return
+     * 删除
+     * @param id ID
+     * @return true-成功，false-失败
      */
     @Override
     public boolean deleteEmployeeById(int id) {
@@ -36,11 +37,22 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     /**
-     * @param employee
-     * @return
+     * 更新
+     * @param employee 员工信息
+     * @return true-成功，false-失败
      */
     @Override
     public boolean updateEmployeeById(Employee employee) {
         return employeeMapper.updateEmployee(employee);
+    }
+
+    /**
+     * 添加
+     * @param employee 新员工
+     * @return true-成功，false-失败
+     */
+    @Override
+    public boolean insertEmployee(Employee employee) {
+        return employeeMapper.insertEmployee(employee);
     }
 }

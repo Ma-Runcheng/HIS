@@ -2,6 +2,8 @@ package com.his.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.util.List;
+
 public class Department {
 
   private long id;
@@ -11,11 +13,21 @@ public class Department {
   @JsonIgnore
   private long delmark;
 
+  private List<Employee> employeeList;
+
   public Department(long id, String deptCode, String deptName, String deptType) {
     this.id = id;
     this.deptCode = deptCode;
     this.deptName = deptName;
     this.deptType = deptType;
+  }
+
+  public List<Employee> getEmployeeList() {
+    return employeeList;
+  }
+
+  public void setEmployeeList(List<Employee> employeeList) {
+    this.employeeList = employeeList;
   }
 
   public long getId() {
