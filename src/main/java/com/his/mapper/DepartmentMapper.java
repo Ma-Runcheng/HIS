@@ -17,6 +17,9 @@ public interface DepartmentMapper {
     @Select("select * from department where delmark = 1")
     List<Department> selectAllDepartment();
 
+    @Select("select * from department where id = #{id}")
+    Department selectDepartmentById(int id);
+
     /**
      * 通过dept_code删除
      * @param code

@@ -13,8 +13,8 @@ public class DepartmentServiceImpl implements DepartmentService {
     DepartmentMapper departmentMapper;
 
     /**
-     * 查找所有部门
-     * @return 所有部门
+     * 科室查询
+     * @return Department
      */
     @Override
     public List<Department> getDepartmentList() {

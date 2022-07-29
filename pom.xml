@@ -16,7 +16,7 @@
     <properties>
         <java.version>1.8</java.version>
         <!--跳过打包test，需要测试时删除-->
-        <skipTests>true</skipTests>
+<!--        <skipTests>true</skipTests>-->
     </properties>
     <dependencies>
         <dependency>

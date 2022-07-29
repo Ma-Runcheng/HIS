@@ -1,10 +1,11 @@
 package com.his.service;
 
 import com.his.pojo.Employee;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 public interface EmployeeService {
-    List<Employee> getEmployeeList();
+    List<Employee> getEmployeeList(int page, int pageSize);
+    boolean deleteEmployeeById(int id);
+    boolean updateEmployeeById(Employee employee);
 }
