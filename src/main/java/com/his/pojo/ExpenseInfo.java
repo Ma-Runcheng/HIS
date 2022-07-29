@@ -1,4 +1,4 @@
-package com.sample;
+package com.his.pojo;
 
 
 public class ExpenseInfo {
@@ -10,6 +10,17 @@ public class ExpenseInfo {
   private String expenseDescription;
   private long delMark;
 
+  @Override
+  public String toString() {
+    return "ExpenseInfo{" +
+            "id=" + id +
+            ", expenseCode='" + expenseCode + '\'' +
+            ", expenseName='" + expenseName + '\'' +
+            ", expensePrice=" + expensePrice +
+            ", expenseDescription='" + expenseDescription + '\'' +
+            ", delMark=" + delMark +
+            '}';
+  }
 
   public long getId() {
     return id;
