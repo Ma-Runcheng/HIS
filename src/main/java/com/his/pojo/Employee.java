@@ -16,6 +16,15 @@ public class Employee {
   private long delmark;
   private Department department;
   private RegistLevel registLevel;
+  private Scheduling scheduling;
+
+  public Scheduling getScheduling() {
+    return scheduling;
+  }
+
+  public void setScheduling(Scheduling scheduling) {
+    this.scheduling = scheduling;
+  }
 
   public RegistLevel getRegistLevel() {
     return registLevel;

@@ -1,7 +1,6 @@
 package com.his.pojo;
 
 
-import com.his.pojo.Department;
 
 public class MedicalTechnology {
 

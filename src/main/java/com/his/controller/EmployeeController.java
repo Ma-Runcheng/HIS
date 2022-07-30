@@ -27,7 +27,6 @@ public class EmployeeController {
     public List<Employee> getEmployeeList(@RequestParam(defaultValue = "1" ) Integer page,
                                           @RequestParam(defaultValue = "10") Integer pageSize,
                                           @RequestParam(defaultValue = "") String name){
-        System.out.println(name);
         return employeeService.getEmployeeList(page,pageSize,name);
     }
 

@@ -20,9 +20,12 @@ public interface EmployeeMapper {
         @Result(property = "department", column = "deptment_id",
                 one = @One(select = "com.his.mapper.DepartmentMapper.selectDepartmentById")),
         @Result(property = "registLevel", column = "regist_level_id",
-                one = @One(select = "com.his.mapper.RegistLevelMapper.selectRegistLevelById"))
+                one = @One(select = "com.his.mapper.RegistLevelMapper.selectRegistLevelById")),
+        @Result(property = "scheduling", column = "scheduling_id",
+                one = @One(select = "com.his.mapper.SchedulingMapper.selectSchedulingById"))
     })
-    @Select("select * from employee where delmark = 1 and realname like concat('%',#{name},'%') LIMIT #{start},#{pageSize}")
+    @Select("select * from employee where delmark = 1 and realname like concat('%',#{name},'%') " +
+            "LIMIT #{start},#{pageSize}")
     List<Employee> selectAllEmployeeAndDept(int start, int pageSize, String name);
 
     /**
@@ -30,7 +33,7 @@ public interface EmployeeMapper {
      * @param id ID
      * @return true-成功，false-失败
      */
-    @Delete("update employee set delmark = 0 where id = #{id}")
+    @Update("update employee set delmark = 0 where id = #{id}")
     boolean deleteEmployeeById(int id);
 
     /**
