@@ -5,7 +5,7 @@ spring:
     datasource:
       name: his
       url: jdbc:mysql://localhost:3306/his?serverTimezone=Asia/Shanghai&useSSL=false
-      password: root
+      password: 123456
       username: root
       driver-class-name: com.mysql.jdbc.Driver
 
