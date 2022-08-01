@@ -35,7 +35,7 @@ public class EmployeeController {
      * @param id ID
      * @return true-成功，false-失败
      */
-    @RequestMapping("/deleteById")
+    @RequestMapping("/deleteRegisterById")
     public boolean deleteEmployee(int id){
         return employeeService.deleteEmployeeById(id);
     }
