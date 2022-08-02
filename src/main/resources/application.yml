@@ -16,5 +16,5 @@ mybatis:
 
 logging:
   level:
-    com.his.mapper: DEBUG
+    com.his.mapper: trace
 
