@@ -9,6 +9,11 @@ package com.his.mapper;
 @Mapper
 public interface RegisterMapper {
     /**
+     * 查询病历号
+     */
+    @Select("select real_name,case_number from register")
+    List<Register> showCaseNumber();
+    /**
      *
      * @param cn
      * @param rn
@@ -17,16 +22,12 @@ public interface RegisterMapper {
     @Select("select * from register where case_number=#{cn} or real_name like concat('%',#{rn},'%')")
     List<Register> selectRegister(String cn,String rn);
 
-
-
-
     /**
-     * 退号，即isbook设置为0
-     * @param id ID
+     * 删除
      * @return true-成功，false-失败
      */
-    @Update("update register set isbook = 0 where dept_code = #{code}")
-     boolean deleteRegisterById(int id);
+    @Delete("delete from register where case_number = #{caseNumber}")
+    boolean deleteRegister(int caseNumber);
 
     /**
      * 添加

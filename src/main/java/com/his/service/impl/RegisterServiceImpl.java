@@ -25,15 +25,22 @@ import java.util.List;
         return RegisterMapper.selectRegister(cn, rn);//应该全部
     }
 
+    @Override
+    public List<Register> showCaseNumber() {
+        return RegisterMapper.showCaseNumber();
+    }
     /**
      * 根据病历号删除挂号信息
-     * @param id
+     * @param
      * @return
      */
     @Override
-    public boolean deleteRegisterById(int id) {
-        return true;
+    public boolean deleteRegister(int caseNumber) {
+        return RegisterMapper.deleteRegister(caseNumber);
     }
+
+
+
 
     /**
      * 新建挂号信息

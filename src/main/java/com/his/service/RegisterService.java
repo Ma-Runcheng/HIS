@@ -7,7 +7,8 @@ import java.util.List;
 
 public interface RegisterService {
     List<Register> selectRegister(String cn,String rn);
-    boolean deleteRegisterById(int id);
+    List<Register> showCaseNumber();
+    boolean deleteRegister(int caseNumber);
 
     boolean insertRegister(Register register);
 }

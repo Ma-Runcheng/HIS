@@ -1,44 +1,16 @@
 package com.his.service;
 
-import com.his.Iservice.IDrugInfoService;
-import com.his.mapper.DrugInfoMapper;
 import com.his.pojo.DrugInfo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import java.util.List;
+public interface DrugInfoService {
 
-@Service
-public class DrugInfoService implements IDrugInfoService {
+    java.util.List<DrugInfo> getDrugInfoList(String code, String name,String m_code);
 
-    @Autowired
-    DrugInfoMapper drugInfoMapper;
+    void updateById(int id,DrugInfo d);
 
-//    @Override
-//    public List<DrugInfo> getDrugInfoList(String code, String name) {
-//        return drugInfoMapper.getDrugInfoList(null,"葡萄糖");
-//    }
+    int deleteById(int id);
 
-    @Override
-    public List<DrugInfo> getDrugInfoList(String code, String name) {
-        return drugInfoMapper.getDrugInfoList(code,name);
-    }
+    int insertDrugInfo(DrugInfo d);
 
-
-    @Override
-    public void updateById(int id, DrugInfo d) {
-        drugInfoMapper.updateById(id, d);
-    }
-
-    @Override
-    public int deleteById(int id){
-        System.out.println(id);
-        return drugInfoMapper.deleteById(id);
-    }
-
-    @Override
-    public int insertDrugInfo(DrugInfo d){
-        System.out.println(d);
-        return drugInfoMapper.insertDrugInfo(d);
-    }
+    String toFirstChar(String str);
 }

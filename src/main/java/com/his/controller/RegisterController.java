@@ -3,6 +3,7 @@ package com.his.controller;
 import com.his.pojo.Employee;
 import com.his.pojo.Register;
 import com.his.service.RegisterService;
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +16,10 @@ public class RegisterController {
 
     @Autowired
     RegisterService registerService;
-
+    @RequestMapping("/showCaseNumber")
+    public List<Register> showCaseNumber(){
+        return registerService.showCaseNumber();
+    }
     @RequestMapping("/selectRegister")
     public List<Register> selectRegister(String cn,String rn){
         return registerService.selectRegister(cn,rn);
@@ -23,14 +27,12 @@ public class RegisterController {
 
     /**
      * 删除
-     * @param id ID
+
      * @return true-成功，false-失败
      */
-    @RequestMapping("/deleteRegisterById")
-    public boolean deleteRegisterbyId(int id){
-        return registerService.deleteRegisterById(id);
+    @RequestMapping("/deleteRegister")
+    public boolean deleteRegister( int caseNumber){return registerService.deleteRegister(caseNumber);
     }
-
 
     /**
      * 添挂号信息

@@ -1,8 +1,8 @@
 package com.his.controller;
 
-import com.his.Iservice.IDrugInfoService;
+import com.his.service.DrugInfoService;
 import com.his.pojo.DrugInfo;
-import org.apache.catalina.AccessLog;
+import org.apache.ibatis.type.NClobTypeHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,16 +14,19 @@ import org.springframework.web.bind.annotation.RestController;
 public class DrugInfoController {
 
     @Autowired
-    IDrugInfoService drugInfoService;
+    DrugInfoService drugInfoService;
 
     @RequestMapping("/list")
-    public java.util.List<DrugInfo> list(String code, String name){
+    public java.util.List<DrugInfo> list(String code, String name,String m_code){
 
-        return drugInfoService.getDrugInfoList(code,name);
+
+        return drugInfoService.getDrugInfoList(code,name,m_code);
     }
 
     @RequestMapping("/update")
     public void updateById(int id,DrugInfo d){
+        String context = toFirstChar(d.getDrugName());
+        d.setMnemonicCode(context);
         drugInfoService.updateById(id,d);
     }
 
@@ -34,9 +37,12 @@ public class DrugInfoController {
 
     @RequestMapping("/insert")
     public int insertDrugInfo(DrugInfo d){
+        String context = toFirstChar(d.getDrugName());
+        d.setMnemonicCode(context);
         return drugInfoService.insertDrugInfo(d);
     }
 
 
+    public String toFirstChar(String str) {return drugInfoService.toFirstChar(str);}
 
 }
