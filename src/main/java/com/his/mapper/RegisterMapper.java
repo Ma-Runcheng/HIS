@@ -35,11 +35,11 @@ public interface RegisterMapper {
      * @return true-成功，false-失败
      */
     @Insert("insert into register(id, case_number, real_name, gender, card_number, birthdate, age, age_type, home_address, visit_date, noon, deptment_id, " +
-            "employee_id, regist_level_id, settle_category_id, is_book, regist_method, regist_money, visit_state) "
-            +"values(#{register.id},#{register.casenumber},#{register.realName},#{register.gender},#{register.cardNumber},#{register.birthdate},#{register.age},#{register.ageType},#{register.homeAddress}," +
-            "#{register.visitDate}，#{register.noon},#{register.detmentId},#{register.employeeId},#{register.registLevelId},#{register.settleCategoryId},#{register.isBook}," +
-            "#{register.registMethod}，#{register.registMoney}，#{register.visitState}")
-    int insertRegister(Register register);
+            "employee_id, regist_level_id, settle_category_id, is_book, register_method, register_money, visit_state) "
+            +"values(#{register.id},#{register.caseNumber},#{register.realName},#{register.gender},#{register.cardNumber},#{register.birthdate},#{register.age},#{register.ageType},#{register.homeAddress}," +
+            "#{register.visitDate}，#{register.noon},#{register.deptmentId},#{register.employeeId},#{register.registerLevelId},#{register.settleCategoryId},#{register.isBook}," +
+            "#{register.registerMethod}，#{register.registerMoney}，#{register.visitState}")
+    boolean addRegister(Register register);
 
 
 

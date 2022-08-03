@@ -48,7 +48,7 @@ import java.util.List;
      * @return
      */
     @Override
-    public boolean insertRegister(Register register) {
-        return true;
+    public boolean addRegister(Register register) {
+        return RegisterMapper.addRegister(register);
     }
 }

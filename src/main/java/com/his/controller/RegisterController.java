@@ -41,6 +41,6 @@ public class RegisterController {
      */
     @RequestMapping(value = "/addRegister" , method = RequestMethod.POST)
     public boolean addRegister(@RequestBody Register register){
-        return registerService.insertRegister(register);
+        return registerService.addRegister(register);
     }
 }

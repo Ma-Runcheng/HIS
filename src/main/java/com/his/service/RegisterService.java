@@ -10,5 +10,5 @@ public interface RegisterService {
     List<Register> showCaseNumber();
     boolean deleteRegister(int caseNumber);
 
-    boolean insertRegister(Register register);
+    boolean addRegister(Register register);
 }
