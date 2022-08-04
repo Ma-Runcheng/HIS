@@ -31,4 +31,7 @@ public class DiseaseController {
     public boolean updateDisease(@RequestBody Disease disease){
         return diseaseService.updateDisease(disease);
     }
+
+    @RequestMapping("/selectDisease")
+    public List<Disease> selectDisease(String dc,String dn){ return diseaseService.selectDisease(dc,dn); }
 }

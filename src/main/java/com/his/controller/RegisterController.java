@@ -43,4 +43,7 @@ public class RegisterController {
     public boolean addRegister(@RequestBody Register register){
         return registerService.addRegister(register);
     }
+
+    @RequestMapping("/updateVisitState")
+    public int updateVisitState(int vs,int id){return registerService.updateVisitState(vs,id);}
 }

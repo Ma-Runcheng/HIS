@@ -1,4 +1,5 @@
 package com.his.service.impl;
+
 import com.his.mapper.DrugInfoMapper;
 import com.his.pojo.DrugInfo;
 import com.his.service.DrugInfoService;
@@ -6,6 +7,7 @@ import org.apache.ibatis.annotations.One;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import net.sourceforge.pinyin4j.PinyinHelper;
+
 import java.util.List;
 
 @Service
@@ -51,4 +53,7 @@ public class DrugInfoServiceImpl implements DrugInfoService {
         }
         return context;
     }
+
+    public List<DrugInfo> searchDrug(String drugname, String mnemoniccode){return drugInfoMapper.searchDrug(drugname,mnemoniccode);}
+
 }

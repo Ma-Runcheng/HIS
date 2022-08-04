@@ -51,4 +51,5 @@ import java.util.List;
     public boolean addRegister(Register register) {
         return RegisterMapper.addRegister(register);
     }
+    public int updateVisitState(int vs, int id){return RegisterMapper.updateVisitState(vs,id);}
 }

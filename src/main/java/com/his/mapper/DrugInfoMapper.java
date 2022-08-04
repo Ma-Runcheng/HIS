@@ -1,14 +1,19 @@
 package com.his.mapper;
 
 
+
 import com.his.pojo.DrugInfo;
-import net.sourceforge.pinyin4j.PinyinHelper;
 import org.apache.ibatis.annotations.*;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
 
 import java.util.List;
 
 @Mapper
 public interface DrugInfoMapper {
+
 
     @Select("<script>select * from drug_info where 1=1 " +
             "<if test=\"code!=null and code!=''\">and drug_code like concat('%',#{code},'%')</if>" +
@@ -27,5 +32,8 @@ public interface DrugInfoMapper {
     @Delete("delete from drug_info where id = #{id}")
     int deleteById(int id);
 
-
+    @Select("select * from drug_info where id=#{id}")
+    List<DrugInfo> selectDruginfoById(int id);
+    @Select("select * from drug_info where drug_name like concat('%',#{drugname},'%') and MnemonicCode like concat('%',#{mnemoniccode},'%')")
+    List<DrugInfo> searchDrug(String drugname,String mnemoniccode);
 }

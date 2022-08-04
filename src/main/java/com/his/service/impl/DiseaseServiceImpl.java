@@ -29,4 +29,7 @@ public class DiseaseServiceImpl implements DiseaseService {
     public boolean updateDisease(Disease disease) {
         return diseaseMapper.updateDisease(disease);
     }
+
+    @Override
+    public List<Disease> selectDisease(String dc,String dn){ return diseaseMapper.selectDisease(dc,dn);}
 }
