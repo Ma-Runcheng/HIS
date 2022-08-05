@@ -3,12 +3,11 @@ package com.his.mapper;
 
 
 import com.his.pojo.DrugInfo;
+import com.his.pojo.Prescription;
+import com.his.pojo.Register;
 import org.apache.ibatis.annotations.*;
-
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
-
-
 import java.util.List;
 
 @Mapper
@@ -33,7 +32,23 @@ public interface DrugInfoMapper {
     int deleteById(int id);
 
     @Select("select * from drug_info where id=#{id}")
-    List<DrugInfo> selectDruginfoById(int id);
-    @Select("select * from drug_info where drug_name like concat('%',#{drugname},'%') and MnemonicCode like concat('%',#{mnemoniccode},'%')")
-    List<DrugInfo> searchDrug(String drugname,String mnemoniccode);
+    List<DrugInfo> selectById(int id);
+
+    @Select("select * from register where id in ("+
+            "select register_id from prescription where drug_state = 1)")
+    List<Register> giveList();
+
+    @Select("select * from register where id in ("+
+            "select register_id from prescription where drug_state = 0)")
+    List<Register> refundList();
+
+    @Update("<script>update prescription set drug_state = #{state} where id = #{id}" +
+            "</script>")
+    void stateChange(int id,String state);
+
+    @Select("<script>select * from prescription where 1=1"+
+            "<if test=\"id!=null and id!=''\">and register_id=#{id}</if>"+
+            "</script>"
+            )
+    List<Prescription> checkPrescription(int id);
 }

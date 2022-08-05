@@ -1,6 +1,8 @@
 package com.his.controller;
 
 
+import com.his.pojo.Prescription;
+import com.his.pojo.Register;
 import com.his.service.DrugInfoService;
 import com.his.pojo.DrugInfo;
 import org.apache.ibatis.type.NClobTypeHandler;
@@ -52,6 +54,25 @@ public class DrugInfoController {
 
 
     @RequestMapping("/searchDrug")
-    public List<DrugInfo> searchDrug(String drugname, String mnemoniccode){return drugInfoService.searchDrug(drugname,mnemoniccode);}
+    public List<DrugInfo> selectById(int id){return drugInfoService.selectById(id);}
 
+    @RequestMapping("/giveList")
+    public List<Register> giveList(){
+        return drugInfoService.giveList();
+    }
+
+    @RequestMapping("/refundList")
+    public List<Register> refundList() {
+        return drugInfoService.refundList();
+    }
+
+    @RequestMapping("/change")
+    public void stateChange(int id,String state){
+        drugInfoService.stateChange(id,state);
+    }
+
+    @RequestMapping("/prescription")
+    public List<Prescription> checkPrescription(int id) {
+        return drugInfoService.checkPrescription(id);
+    }
 }
