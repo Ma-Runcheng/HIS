@@ -20,7 +20,14 @@ public interface RegisterMapper {
      * @param rn
      * @return
      */
-    @Select("select * from register where case_number=#{cn} or real_name like concat('%',#{rn},'%')")
+//    @Select("select * from register where case_number=#{cn} or real_name like concat('%',#{rn},'%')")
+    @Select({"<script>",
+            "SELECT * FROM register",
+            "WHERE  case_number=#{cn}",
+            "<when test='rn!=null and rn.length()!=0'>",
+            "or real_name like concat('%',#{rn},'%')",
+            "</when>",
+            "</script>"})
     List<Register> selectRegister(String cn,String rn);
 
 
@@ -29,18 +36,21 @@ public interface RegisterMapper {
      * @return true-成功，false-失败
      */
     @Delete("delete from register where case_number = #{caseNumber}")
-    boolean deleteRegister(int caseNumber);
+    boolean deleteRegister(String caseNumber);
 
     /**
      * 添加
      * @param register 新挂号信息
      * @return true-成功，false-失败
      */
-    @Insert("insert into register(id, case_number, real_name, gender, card_number, birthdate, age, age_type, home_address, visit_date, noon, deptment_id, " +
-            "employee_id, regist_level_id, settle_category_id, is_book, register_method, register_money, visit_state) "
-            +"values(#{register.id},#{register.caseNumber},#{register.realName},#{register.gender},#{register.cardNumber},#{register.birthdate},#{register.age},#{register.ageType},#{register.homeAddress}," +
-            "#{register.visitDate}，#{register.noon},#{register.deptmentId},#{register.employeeId},#{register.registerLevelId},#{register.settleCategoryId},#{register.isBook}," +
-            "#{register.registerMethod}，#{register.registerMoney}，#{register.visitState}")
+   @Insert("insert into register" +
+           "(real_name,gender,age,birthdate,card_number,home_address," +
+           "deptment_id,employee_id,visit_date,noon,is_book,regist_method," +
+           "case_number,regist_money)" +
+           "values(#{realName},#{gender},#{age},#{birthdate},#{cardNumber},#{homeAddress},#{deptmentId}," +
+           "#{employeeId},#{visitDate},#{noon},#{isBook},#{registMethod},#{caseNumber},#{registMoney})")
+   // @Insert("insert into register(real_name)values(#{realName})")
+
     boolean addRegister(Register register);
 
 

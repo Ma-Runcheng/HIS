@@ -9,4 +9,6 @@ public interface EmployeeService {
     boolean deleteEmployeeById(int id);
     boolean updateEmployeeById(Employee employee);
     boolean insertEmployee(Employee employee);
+
+    List<Employee> getEmployeeLists(int deptmentId,int registLevelId);
 }

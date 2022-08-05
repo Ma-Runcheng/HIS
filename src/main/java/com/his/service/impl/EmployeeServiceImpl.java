@@ -27,6 +27,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeMapper.selectAllEmployeeAndDept(start,pageSize,name);
     }
 
+    @Override
+    public List<Employee> getEmployeeLists(int deptmentId,int registLevelId) {
+//        int start = (page - 1) * pageSize;
+        return employeeMapper.selectAllEmployeeAndDepts(deptmentId,registLevelId);
+    }
     /**
      * 删除
      * @param id ID

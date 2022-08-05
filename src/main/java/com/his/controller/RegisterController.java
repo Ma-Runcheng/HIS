@@ -20,9 +20,11 @@ public class RegisterController {
     public List<Register> showCaseNumber(){
         return registerService.showCaseNumber();
     }
-    @RequestMapping("/selectRegister")
-    public List<Register> selectRegister(String cn,String rn){
-        return registerService.selectRegister(cn,rn);
+    @RequestMapping(value ="/selectRegister")
+    public List<Register> selectRegister(@RequestParam(value = "caseNumber") String caseNumber,@RequestParam(value = "realName") String realName){
+//        ,@RequestParam(value = "realName") String realName
+        System.out.println("caseNumber="+caseNumber);
+        return registerService.selectRegister(caseNumber,realName);
     }
 
     /**
@@ -31,7 +33,7 @@ public class RegisterController {
      * @return true-成功，false-失败
      */
     @RequestMapping("/deleteRegister")
-    public boolean deleteRegister( int caseNumber){return registerService.deleteRegister(caseNumber);
+    public boolean deleteRegister( String caseNumber){return registerService.deleteRegister(caseNumber);
     }
 
     /**

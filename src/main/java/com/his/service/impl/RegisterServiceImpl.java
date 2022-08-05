@@ -35,7 +35,7 @@ import java.util.List;
      * @return
      */
     @Override
-    public boolean deleteRegister(int caseNumber) {
+    public boolean deleteRegister(String caseNumber) {
         return RegisterMapper.deleteRegister(caseNumber);
     }
 
