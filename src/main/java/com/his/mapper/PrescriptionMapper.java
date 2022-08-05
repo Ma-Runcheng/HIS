@@ -1,5 +1,6 @@
 package com.his.mapper;
 
+import com.his.pojo.DrugInfo;
 import com.his.pojo.Prescription;
 import org.apache.ibatis.annotations.*;
 
@@ -10,12 +11,13 @@ public interface PrescriptionMapper {
 
     @Insert("insert into prescription (register_id,drug_id,drug_usage,drug_number,creation_time)"+
             "values (#{registerId},#{drugId},#{drugUsage},#{drugNumber},#{creationTime})")
-    boolean insertPrescription(Prescription prescription);
+    boolean insertPrescription(int registerId,int drugId,String drugUsage,String drugNumber,String creationTime);
+    //    boolean insertPrescription(Prescription prescription);
 
-    @Results({
-            @Result(property = "register_id",column = "register_id",id = false),
-            @Result(property = "drug_info",column = "register_id",many = @Many(select = "com.his.mapper.DrugInfoMapper.selectDruginfoById"))
-    })
-    @Select("select * from prescription where register_id=#{registerId}")
+//    @Results({
+//            @Result(property = "registerId",column = "register_id"),
+//            @Result(property = "drugInfo",column = "drug_id",javaType = DrugInfo.class, one = @One(select = "com.his.mapper.DrugInfoMapper.selectById"))
+//    })
+    @Select("select * from prescription inner join  drug_info on prescription.drug_id=drug_info.id where register_id=#{registerId}")
     List<Prescription> selectPrescription(int registerId);
 }

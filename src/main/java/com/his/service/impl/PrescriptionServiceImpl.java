@@ -15,7 +15,8 @@ public class PrescriptionServiceImpl implements PrescriptionService {
     PrescriptionMapper prescriptionMapper;
 
     @Override
-    public boolean insertPrescription(Prescription prescription){return prescriptionMapper.insertPrescription(prescription);}
+//    public boolean insertPrescription(Prescription prescription){return prescriptionMapper.insertPrescription(prescription);}
+    public boolean insertPrescription(int registerId,int drugId,String drugUsage,String drugNumber,String creationTime){return prescriptionMapper.insertPrescription(registerId,drugId,drugUsage,drugNumber,creationTime);}
 
     @Override
     public List<Prescription> selectPrescription(int registerId){return prescriptionMapper.selectPrescription(registerId);}
