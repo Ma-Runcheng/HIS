@@ -28,5 +28,5 @@ public interface DrugInfoService {
 
     List<Prescription> checkPrescription(int id);
 
-
+    List<DrugInfo> searchDrug(String drugname, String mnemoniccode);
 }

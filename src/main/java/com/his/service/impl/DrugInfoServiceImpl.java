@@ -81,4 +81,6 @@ public class DrugInfoServiceImpl implements DrugInfoService {
         return context;
     }
 
+    public List<DrugInfo> searchDrug(String drugname, String mnemoniccode){return drugInfoMapper.searchDrug(drugname,mnemoniccode);}
+
 }

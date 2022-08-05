@@ -51,4 +51,7 @@ public interface DrugInfoMapper {
             "</script>"
             )
     List<Prescription> checkPrescription(int id);
+
+    @Select("select * from drug_info where drug_name like concat('%',#{drugname},'%') and MnemonicCode like concat('%',#{mnemoniccode},'%')")
+    List<DrugInfo> searchDrug(String drugname,String mnemoniccode);
 }

@@ -53,7 +53,7 @@ public class DrugInfoController {
     public String toFirstChar(String str) {return drugInfoService.toFirstChar(str);}
 
 
-    @RequestMapping("/searchDrug")
+    @RequestMapping("/selectDrug")
     public List<DrugInfo> selectById(int id){return drugInfoService.selectById(id);}
 
     @RequestMapping("/giveList")
@@ -75,4 +75,7 @@ public class DrugInfoController {
     public List<Prescription> checkPrescription(int id) {
         return drugInfoService.checkPrescription(id);
     }
+
+    @RequestMapping("/searchDrug")
+    public List<DrugInfo> searchDrug(String drugname, String mnemoniccode){return drugInfoService.searchDrug(drugname,mnemoniccode);}
 }
