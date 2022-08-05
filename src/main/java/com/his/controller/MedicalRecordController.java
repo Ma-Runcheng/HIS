@@ -16,8 +16,10 @@ public class MedicalRecordController {
     private MedicalRecordService medicalRecordService;
 
     @RequestMapping("/insertRecord")
-    public boolean insertMedicalRecord(MedicalRecord medicalRecord){ return medicalRecordService.insertMedicalRecord(medicalRecord);}
-
+    //public boolean insertMedicalRecord(MedicalRecord medicalRecord){ return medicalRecordService.insertMedicalRecord(medicalRecord);}
+    public boolean insertMedicalRecord(int registerId,String readme,String present,String presentTreat,String history,String allergy,String physique,String proposal,String careful) {
+        return medicalRecordService.insertMedicalRecord(registerId,readme,present,presentTreat,history,allergy,physique,proposal,careful);
+    }
     @RequestMapping("/insertResult")
     public boolean updateResult(String diagnosis,String cure,int id){return medicalRecordService.updateResult(diagnosis,cure,id);}
 }
