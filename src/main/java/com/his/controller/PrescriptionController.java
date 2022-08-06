@@ -20,7 +20,7 @@ public class PrescriptionController {
 
     @RequestMapping("insertPrescription")
 //    public boolean insertPrescription(Prescription prescription){return prescriptionService.insertPrescription(prescription);}
-    public boolean insertPrescription(int registerId,int drugId,String drugUsage,String drugNumber,String creationTime){return prescriptionService.insertPrescription(registerId,drugId,drugUsage,drugNumber,creationTime);}
+    public boolean insertPrescription(int registerId,int drugId,String drugUsage,String drugNumber,String creationTime,String drugState){return prescriptionService.insertPrescription(registerId,drugId,drugUsage,drugNumber,creationTime,drugState);}
 
     @RequestMapping("/selectPrescription")
     public List<Prescription> selectPrescription(int registerId){return prescriptionService.selectPrescription(registerId);}

@@ -9,9 +9,9 @@ import java.util.List;
 @Mapper
 public interface PrescriptionMapper {
 
-    @Insert("insert into prescription (register_id,drug_id,drug_usage,drug_number,creation_time)"+
-            "values (#{registerId},#{drugId},#{drugUsage},#{drugNumber},#{creationTime})")
-    boolean insertPrescription(int registerId,int drugId,String drugUsage,String drugNumber,String creationTime);
+    @Insert("insert into prescription (register_id,drug_id,drug_usage,drug_number,creation_time,drug_state)"+
+            "values (#{registerId},#{drugId},#{drugUsage},#{drugNumber},#{creationTime},#{drugState})")
+    boolean insertPrescription(int registerId,int drugId,String drugUsage,String drugNumber,String creationTime,String drugState);
     //    boolean insertPrescription(Prescription prescription);
 
 //    @Results({
