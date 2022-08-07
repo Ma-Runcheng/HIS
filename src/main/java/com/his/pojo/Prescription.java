@@ -1,6 +1,10 @@
 package com.his.pojo;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.util.List;
+
 public class Prescription {
 
   private long id;
@@ -8,9 +12,52 @@ public class Prescription {
   private long drugId;
   private String drugUsage;
   private String drugNumber;
+
+  @JsonFormat(pattern = "YYYY-MM-dd HH:mm:ss",timezone = "GMT+8")
   private java.sql.Timestamp creationTime;
   private String drugState;
 
+  private String drugName;
+  private String drugFormat;
+  private double drugPrice;
+
+  @Override
+  public String toString() {
+    return "Prescription{" +
+            "id=" + id +
+            ", registerId=" + registerId +
+            ", drugId=" + drugId +
+            ", drugUsage='" + drugUsage + '\'' +
+            ", drugNumber='" + drugNumber + '\'' +
+            ", creationTime=" + creationTime +
+            ", drugState='" + drugState + '\'' +
+            '}';
+  }
+
+  public String getDrugName() {
+    return drugName;
+  }
+
+  public void setDrugName(String drugName) {
+    this.drugName = drugName;
+  }
+
+
+  public String getDrugFormat() {
+    return drugFormat;
+  }
+
+  public void setDrugFormat(String drugFormat) {
+    this.drugFormat = drugFormat;
+  }
+
+  public double getDrugPrice() {
+    return drugPrice;
+  }
+
+  public void setDrugPrice(double drugPrice) {
+    this.drugPrice = drugPrice;
+  }
 
   public long getId() {
     return id;

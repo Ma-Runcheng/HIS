@@ -24,7 +24,7 @@ public class RegisterController {
     public List<Register> selectRegister(@RequestParam(value = "caseNumber") String caseNumber,@RequestParam(value = "realName") String realName){
 //        ,@RequestParam(value = "realName") String realName
         System.out.println("caseNumber="+caseNumber);
-        return registerService.selectRegister(caseNumber,realName);
+        return registerService.selectRegister(caseNumber,realName,1);
     }
 
     /**

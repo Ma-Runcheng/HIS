@@ -3,7 +3,10 @@ package com.his.mapper;
 import com.his.pojo.MedicalRecord;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+
+import java.util.List;
 
 @Mapper
 public interface MedicalRecordMapper {
@@ -16,4 +19,7 @@ public interface MedicalRecordMapper {
 
     @Update("update medical_record set diagnosis=#{diagnosis},cure=#{cure} where register_id=#{id}")
     boolean updateResult(String diagnosis,String cure,int id);
+
+    @Select("select * from medical_record where register_id=#{registerId}")
+    List<MedicalRecord> selectMedicalRecordId(int registerId);
 }

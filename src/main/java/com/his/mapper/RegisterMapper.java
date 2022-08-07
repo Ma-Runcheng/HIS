@@ -18,6 +18,7 @@ public interface RegisterMapper {
      *
      * @param cn
      * @param rn
+     * @param visitState
      * @return
      */
 //    @Select("select * from register where case_number=#{cn} or real_name like concat('%',#{rn},'%')")
@@ -28,7 +29,7 @@ public interface RegisterMapper {
             "or real_name like concat('%',#{rn},'%')",
             "</when>",
             "</script>"})
-    List<Register> selectRegister(String cn,String rn);
+    List<Register> selectRegister(String cn, String rn, int visitState);
 
 
     /**

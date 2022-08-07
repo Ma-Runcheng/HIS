@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/medicalRecord")
@@ -22,4 +24,7 @@ public class MedicalRecordController {
     }
     @RequestMapping("/insertResult")
     public boolean updateResult(String diagnosis,String cure,int id){return medicalRecordService.updateResult(diagnosis,cure,id);}
+
+    @RequestMapping("/selectId")
+    public List<MedicalRecord> selectMedicalRecordId(int registerId){return medicalRecordService.selectMedicalRecordId(registerId);}
 }
