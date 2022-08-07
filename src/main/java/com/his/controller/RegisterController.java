@@ -21,8 +21,8 @@ public class RegisterController {
         return registerService.showCaseNumber();
     }
     @RequestMapping("/selectRegister")
-    public List<Register> selectRegister(String cn,String rn){
-        return registerService.selectRegister(cn,rn);
+    public List<Register> selectRegister(String cn,String rn,int visitState){
+        return registerService.selectRegister(cn,rn,visitState);
     }
 
     /**

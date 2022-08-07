@@ -6,7 +6,7 @@ import com.his.pojo.Register;
 import java.util.List;
 
 public interface RegisterService {
-    List<Register> selectRegister(String cn,String rn);
+    List<Register> selectRegister(String cn,String rn,int visitState);
 
     List<Register> showCaseNumber();
     boolean deleteRegister(int caseNumber);

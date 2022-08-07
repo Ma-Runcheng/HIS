@@ -21,8 +21,8 @@ import java.util.List;
      * @return register
      */
     @Override
-    public List<Register> selectRegister(String cn, String rn) {
-        return RegisterMapper.selectRegister(cn, rn);//应该全部
+    public List<Register> selectRegister(String cn, String rn,int visitState) {
+        return RegisterMapper.selectRegister(cn, rn,visitState);//应该全部
     }
 
     @Override
