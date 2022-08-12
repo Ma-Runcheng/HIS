@@ -23,8 +23,12 @@ public class MedicalRecordController {
         return medicalRecordService.insertMedicalRecord(registerId,readme,present,presentTreat,history,allergy,physique,proposal,careful);
     }
     @RequestMapping("/insertResult")
-    public boolean updateResult(String diagnosis,String cure,int id){return medicalRecordService.updateResult(diagnosis,cure,id);}
+    public boolean updateResult(String diagnosis,String cure,int id){
+        return medicalRecordService.updateResult(diagnosis,cure,id);
+    }
 
     @RequestMapping("/selectId")
-    public List<MedicalRecord> selectMedicalRecordId(int registerId){return medicalRecordService.selectMedicalRecordId(registerId);}
+    public List<MedicalRecord> selectMedicalRecordId(int registerId){
+        return medicalRecordService.selectMedicalRecordId(registerId);
+    }
 }

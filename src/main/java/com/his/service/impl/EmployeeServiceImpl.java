@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
+
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
@@ -32,6 +35,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 //        int start = (page - 1) * pageSize;
         return employeeMapper.selectAllEmployeeAndDepts(deptmentId,registLevelId);
     }
+
+
+    @Override
+    public Employee validate(String rn, String pwd) {
+        return employeeMapper.validate(rn, pwd);
+    }
+
     /**
      * 删除
      * @param id ID
@@ -50,6 +60,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public boolean updateEmployeeById(Employee employee) {
         return employeeMapper.updateEmployee(employee);
+    }
+
+    public java.util.List<Employee> list(int deptmentId,int registLevelId){
+        return employeeMapper.selectAllEmployeeAndDepts(deptmentId,registLevelId);
     }
 
     /**

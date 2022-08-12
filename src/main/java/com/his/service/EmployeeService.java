@@ -11,4 +11,5 @@ public interface EmployeeService {
     boolean insertEmployee(Employee employee);
 
     List<Employee> getEmployeeLists(int deptmentId,int registLevelId);
+    Employee validate(String rn,String pwd);
 }

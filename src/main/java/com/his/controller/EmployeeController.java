@@ -38,7 +38,12 @@ public class EmployeeController {
     public List<Employee> getEmployeeLists(@RequestParam(value = "deptmentId") int deptmentId, @RequestParam(value = "registLevelId") int registLevelId) {
         return employeeService.getEmployeeLists(deptmentId, registLevelId);
     }
-
+   @RequestMapping("/validate")
+    public Employee validate(String userName,String pwd){
+        System.out.println(userName+">>>");
+        System.out.println(pwd+">>>>>");
+        return employeeService.validate(userName,pwd);
+    }
     /**
      * 删除
      *

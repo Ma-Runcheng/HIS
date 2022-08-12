@@ -10,6 +10,7 @@ public class Employee {
   private long deptmentId;
   private long registLevelId;
   private long schedulingId;
+  private long roleId;
   private String realname;
   private String password;
   @JsonIgnore
@@ -17,7 +18,13 @@ public class Employee {
   private Department department;
   private RegistLevel registLevel;
   private Scheduling scheduling;
+  public long getRoleId() {
+    return roleId;
+  }
 
+  public void setRoleId(long roleId) {
+    this.roleId = roleId;
+  }
   public Scheduling getScheduling() {
     return scheduling;
   }

@@ -38,6 +38,13 @@ public interface EmployeeMapper {
     })
     @Select("select * from employee where deptment_id=#{deptmentId} and regist_level_id=#{registLevel}")
     List<Employee> selectAllEmployeeAndDepts(int deptmentId,int registLevel);
+
+
+    @Select("select * from employee where realname=#{rn} and password=#{pwd}")
+   Employee validate(String rn,String pwd);
+
+
+
     /**
      * 删除用户，即delmark设置为0
      * @param id ID
